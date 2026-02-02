@@ -1,0 +1,47 @@
+[project]
+name = "iam-gen-ai-bot"
+version = "0.1.0"
+description = "Multi-agent LLM platform for content planning and production."
+requires-python = ">=3.12"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "AI" }]
+dependencies = [
+  "fastapi>=0.115.0",
+  "uvicorn>=0.30.0",
+  "pydantic>=2.7.0",
+  "pydantic-settings>=2.2.1",
+  "sqlalchemy>=2.0.30",
+  "psycopg2-binary>=2.9.9",
+  "alembic>=1.13.1",
+  "redis>=5.0.4",
+  "httpx>=0.27.0",
+  "tenacity>=8.3.0",
+  "apscheduler>=3.10.4",
+  "structlog>=24.1.0",
+]
+
+[project.optional-dependencies]
+-dev = [
+  "pytest>=8.2.0",
+  "pytest-asyncio>=0.23.7",
+  "ruff>=0.4.3",
+  "black>=24.4.2",
+  "mypy>=1.10.0",
+]
+
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+addopts = "-q"
